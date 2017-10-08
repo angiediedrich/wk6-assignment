@@ -32,15 +32,37 @@ document.getElementById('BtnDonate').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Donate" button.
   favoriteSpeechPrompt = window.prompt('Which speech author is your favorite?');
 
-  //FOR loop
+  var match = true;
+
+  for (var i = 0; i < speechesArray.length; i++) {
+    var favoriteAuthor = favoriteSpeechPrompt[i];
+
+    if(favoriteAuthor === speechesArray[i].author) {
+      break;
+    }
+
+    if (match) {
+      console.log (
+        speechesArray[i].author + " was " + 
+        speechesArray[i].authorAge + " during this speech.");
+      break;
+    } else {
+      console.log ("Did you spell that name correctly?");
+    }
+
+
+
+  /*FOR loop
   for(var i = 0; i < speechesArray.length; i++) {
-    if(speechesArray[i].author === favoriteSpeechPrompt) {
+    if(favoriteSpeechPrompt === speechesArray[i].author) {
       console.log (
         speechesArray[i].author + " was " + 
         speechesArray[i].authorAge + " during this speech.");
     } else {
+      continue;
       console.log ("Did you spell that name correctly?");
     }
+*/
   }
 });
 
